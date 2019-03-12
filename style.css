@@ -41,7 +41,7 @@ html { font-size: sans-serif; }
 
 .img__title {
 	position: absolute;
-	bottom: 8%;
+	top: 250px;
 	width: 100%;
 	text-align: center;
 	font-size: 1.5rem;
