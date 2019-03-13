@@ -5,38 +5,50 @@
 
 let // referencias DOM
 		images = document.querySelectorAll( '.img' ),
-		imgIndex = 0,
+		//variables
 		imgTotal = images.length,
-		imgInterval = 3000,
+		imgLast = imgTotal - 1,
+		imgIndexCenter = 0,
+		imgIndexLeft = imgLast,
+		imgInterval = 4000,
 		slideItems = [];
 
 /**
  * @function
  * @name changeImg
  * @description cambia las clases de la imagenes del carrusel
+ * @param {number} newLeft
+ * @param {number} newCenter
  */
-function changeImg( number ) {
-	images[ imgIndex ].classList.remove( 'img--center');
-	images[ imgIndex ].classList.add( 'img--left');
+function changeImg( newLeft, newCenter ) {
+	images[ imgIndexLeft ].classList.remove( 'img--left');
 
-	images[ number ].classList.remove( 'img--right');
-	images[ number ].classList.add( 'img--center');
+	// lo puse en este orden por la cascada de CSS
+	images[ imgIndexCenter ].classList.add( 'img--left');
+	images[ imgIndexCenter ].classList.remove( 'img--center');
 
-	imgIndex = number;
-}
+	images[ newCenter ].classList.add( 'img--center');
 
-function left() {
-	let left = document.querySelector( '.img--left' );
-	left.classList.remove( 'img--left' );
-	left.classList.add( 'img--right' );
-}
+	imgIndexLeft = newLeft;
+	imgIndexCenter = newCenter;
+} 
 
+/**
+ * @function
+ * @name change
+ * @description verifica el estado de los indices izquierdo y central
+ */
 function change() {
-	let a;
-	if ( imgIndex === imgTotal - 1 ) a = 0;
-	else a = imgIndex + 1;
-	left();
-	changeImg( a );
+	let left = 0,
+			center = 0;
+			
+	if ( imgIndexLeft === imgTotal - 1 ) left = 0;
+	else left = imgIndexLeft + 1;
+
+	if ( imgIndexCenter === imgTotal - 1 ) center = 0;
+	else center = imgIndexCenter + 1;
+
+	changeImg( left, center );
 }
 
 let carrusel = window.setInterval( change, imgInterval );

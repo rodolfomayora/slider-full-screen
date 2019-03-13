@@ -16,27 +16,27 @@ html { font-size: sans-serif; }
 	background: #111;
 }
 
+/* las imagenes iniciaran a la derechas*/
 .img {
 	position: absolute;
 	width: 100%;
+	left: 100%;
 }
 
 .img__item {
 	width: 100%;
 }
 
-.img--left {
-	left: -100%;
-	transition: left 1s;
-}
-
+/* la imagen a la derecha  se pondra en el centro */
 .img--center {
 	left: 0;
 	transition: left 1s;
 }
 
-.img--right {
-	left: 100%;
+/* la imagen al centro se deslizara a la izquierda */
+.img--left {
+	left: -100%;
+	transition: left 1s;
 }
 
 .img__title {
