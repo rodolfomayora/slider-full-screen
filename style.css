@@ -33,23 +33,20 @@ html { font-family: sans-serif; }
 	width: 100%;
 }
 
-/* el que este activo, se mantendra a la derecha */
-.img--right { 
-	display: block;
-	left: 100%;
-}
+/* mantiene activa la imagen */
+
+.img--right,
+.img--center,
+.img--left { 	display: block; }
+
+/* la imagen se pondra a la derecha */
+.img--right { left: 100%; }
 
 /* la imagen a la derecha  se pondra en el centro */
-.img--center {
-	display: block;
-	left: 0;
-}
+.img--center { left: 0; }
 
 /* la imagen al centro se deslizara a la izquierda */
-.img--left {
-	display: block;
-	left: -100%;
-}
+.img--left { left: -100%; }
 
 .img__title {
 	position: absolute;
