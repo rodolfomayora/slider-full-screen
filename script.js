@@ -10,7 +10,8 @@ let // referencias DOM
 		imgLast = imgTotal - 1,
 		imgIndexCenter = 0,
 		imgIndexLeft = imgLast,
-		imgInterval = 4000,
+		imgInterval = 5000,
+		// una cosa experimental que no se para que lo puse alli
 		slideItems = [];
 
 /**
@@ -33,25 +34,48 @@ function changeImg( newLeft, newCenter ) {
 	imgIndexCenter = newCenter;
 } 
 
+
+
+let isPause = false;
+
 /**
  * @function
  * @name change
  * @description verifica el estado de los indices izquierdo y central
  */
 function change() {
-	let left = 0,
-			center = 0;
-			
-	if ( imgIndexLeft === imgTotal - 1 ) left = 0;
-	else left = imgIndexLeft + 1;
+	
+	if ( !isPause ) {
+		let left = 0,
+				center = 0;
+				
+		if ( imgIndexLeft === imgTotal - 1 ) left = 0;
+		else left = imgIndexLeft + 1;
 
-	if ( imgIndexCenter === imgTotal - 1 ) center = 0;
-	else center = imgIndexCenter + 1;
+		if ( imgIndexCenter === imgTotal - 1 ) center = 0;
+		else center = imgIndexCenter + 1;
 
-	changeImg( left, center );
+		changeImg( left, center );
+	}
+
 }
 
-let carrusel = window.setInterval( change, imgInterval );
+
+function setStatus () {
+	isPause = !isPause;
+}
+
+// detiene el carrusel cuando el usuario quita el foco de la pagina
+window.addEventListener( 'blur', setStatus );
+
+// reanuda el carrusel cuando el usuario vuelve a la pagina
+window.addEventListener( 'focus', setStatus );
+
+// inicia el carrusel solo cuando toda la pagina halla cargado
+window.addEventListener( 'load', function () {
+	let carrusel = window.setInterval( change, imgInterval );
+} )
+
 
 // detener intervalo
 // clearInterval(carrusel)
