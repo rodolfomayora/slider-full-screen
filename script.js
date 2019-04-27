@@ -11,7 +11,7 @@ let  // referencias DOM
 	imgIndexRight = 1,
 	imgIndexCenter = 0,
 	imgIndexLeft = imgLast,
-	imgInterval = 6000,
+	imgInterval = 5000,
 	slider = null;
 
 
@@ -24,6 +24,7 @@ let  // referencias DOM
  * @param {number} newRight
  */
 function changeImg ( newLeft, newCenter, newRight ) {
+	
 	// la imagen que esta a la derecha sale del slider
 	images[ imgIndexLeft ].classList.remove( 'img--left' );
 
@@ -35,7 +36,7 @@ function changeImg ( newLeft, newCenter, newRight ) {
 	images[ imgIndexRight ].classList.add( 'img--center' );
 	images[ imgIndexRight ].classList.remove( 'img--right' );
 
-	// una imagen entra al carrusel
+	// una imagen entra al slider
 	images[ newRight ].classList.add( 'img--right' );
 
 	// se actualizan los indices
