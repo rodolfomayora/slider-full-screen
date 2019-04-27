@@ -4,7 +4,7 @@
  */
 
 let  // referencias DOM
-	images = document.querySelectorAll( '.img' ),
+	images = document.querySelectorAll( '.slider-item' ),
 	//variables 
 	imgTotal = images.length,
 	imgLast = imgTotal - 1,
@@ -26,18 +26,18 @@ let  // referencias DOM
 function changeImg ( newLeft, newCenter, newRight ) {
 	
 	// la imagen que esta a la derecha sale del slider
-	images[ imgIndexLeft ].classList.remove( 'img--left' );
+	images[ imgIndexLeft ].classList.remove( 'slider-item--left' );
 
 	// la imagen del centro se ubica a la derecha
-	images[ imgIndexCenter ].classList.add( 'img--left' );
-	images[ imgIndexCenter ].classList.remove( 'img--center' );
+	images[ imgIndexCenter ].classList.add( 'slider-item--left' );
+	images[ imgIndexCenter ].classList.remove( 'slider-item--center' );
 
 	// la imange de de la derecha se ubica en el centro 
-	images[ imgIndexRight ].classList.add( 'img--center' );
-	images[ imgIndexRight ].classList.remove( 'img--right' );
+	images[ imgIndexRight ].classList.add( 'slider-item--center' );
+	images[ imgIndexRight ].classList.remove( 'slider-item--right' );
 
 	// una imagen entra al slider
-	images[ newRight ].classList.add( 'img--right' );
+	images[ newRight ].classList.add( 'slider-item--right' );
 
 	// se actualizan los indices
 	imgIndexLeft = newLeft;
