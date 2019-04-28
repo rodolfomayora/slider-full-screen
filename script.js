@@ -11,7 +11,7 @@ let  // referencias DOM
 	imgIndexRight = 1,
 	imgIndexCenter = 0,
 	imgIndexLeft = imgLast,
-	imgInterval = 5000,
+	imgInterval = 7000,
 	slider = null;
 
 
@@ -78,6 +78,7 @@ window.addEventListener( 'load', function () {
 	// detiene el slider cuando el usuario quita el foco de la pagina
 	window.addEventListener( 'blur', function () {
 		window.clearInterval( slider );
+		slider = null;
 	} );
 
 	// reanuda el slider cuando el usuario vuelve a la pagina
