@@ -152,7 +152,10 @@ footer { display: block; }
 	transition: background-color .5s;
 }
 
-.slider-arrow:hover { background-color: rgba( 100, 100, 100, .9 ); }
+.slider-arrow:hover { 
+	background-color: rgba( 100, 100, 100, .9 ); 
+	color: #fa0;
+}
 
 .arrow-left {
 	left: 0;
