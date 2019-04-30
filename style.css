@@ -64,7 +64,7 @@ body {
 
 /* la imagen se pondra a la derecha */
 .slider-item--right { 
-	z-index: 5;
+	/*z-index: 5;*/
 	-webkit-transform: translateX( 50% );
 			-ms-transform: translateX( 50% );
 					transform: translateX( 50% );
@@ -72,7 +72,7 @@ body {
 
 /* la imagen a la derecha  se pondra en el centro */
 .slider-item--center { 
-	z-index: 15;
+	/*z-index: 15;*/
 	-webkit-transform: translateX( -50% );
 			-ms-transform: translateX( -50% );
 					transform: translateX( -50% );
@@ -80,7 +80,7 @@ body {
 
 /* la imagen al centro se deslizara a la izquierda */
 .slider-item--left { 
-	z-index: 10;
+	/*z-index: 10;*/
 	-webkit-transform: translateX( -150% );
 			-ms-transform: translateX( -150% );
 					transform: translateX( -150% );
