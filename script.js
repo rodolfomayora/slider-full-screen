@@ -7,9 +7,13 @@
  * @author rodolfo mayora
  */
 
+const CLASS = document.querySelector.bind( document );
+
 let  // referencias DOM
-	slideshow = document.querySelector( '.slider-container' ),
+	slideshow = CLASS( '.slider-container' ),
 	item = document.querySelectorAll( '.slider-item' ),
+	arrowLeft = CLASS( '.arrow-left' ),
+	arrowRight = CLASS( '.arrow-right' ),
 	//variables del slideshow
 	itemTotal = item.length,
 	lastItem = itemTotal - 1,
@@ -182,9 +186,7 @@ function slideTouch () {
 window.addEventListener( 'load', function () {
 
 	// detiene el slider cuando el usuario quita el foco de la pagina
-	window.addEventListener( 'blur', function () {
-		stopAutoSlide()
-	} );
+	window.addEventListener( 'blur', function () { stopAutoSlide() } );
 
 	// reanuda el slider cuando el usuario vuelve a la pagina
 	window.addEventListener( 'focus', function () {
@@ -202,6 +204,10 @@ window.addEventListener( 'load', function () {
 		touchEndX = event.changedTouches[ 0 ].screenX;
 		slideTouch();
 	} );
+
+	arrowLeft.addEventListener( 'click', function() { changeItem( 1 ) } );
+
+	arrowRight.addEventListener( 'click', function() { changeItem( 0 ) } );
 
 	// inicia el slider automatico
 	autoSlide = window.setInterval( function () {

@@ -22,10 +22,14 @@ body {
 	background-color: #777;
 }
 
+header,
+footer { display: block; }
+
 
 /*	Header
 ===========================================================*/
 .header {
+	/* le asigne position relative para otorgar el efecto de material design */
 	position: relative;
 	z-index: 50;
 	line-height: 80px;
@@ -162,6 +166,10 @@ body {
 	text-align: left;
 }
 
+.footer {
+	line-height: 50px;
+	background-color: #34495e;
+}
 
 /* Mediar Queries 
  * metodologia: First Mobile;	
