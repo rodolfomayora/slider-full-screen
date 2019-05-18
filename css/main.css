@@ -1,0 +1,177 @@
+/**
+ * Norma:
+ * Las propiedades CSS se ordenaran en funcion de la formula PC-TV
+ *  Posicionamiento - propiedades de posicionamiento
+ *  Caja - propiedades de modelo de caja
+ *  Texto - propiedades texto
+ *  Visual - propiedades visuales
+ *
+ * metodologia: First Mobile;
+ */
+
+/*	Slider-Container
+===========================================================*/
+.slider-container {
+	position: relative;
+	width: 100%;
+	height: 83%;
+	max-height: 320px;
+	overflow: hidden;
+	background: #111;
+}
+
+
+/*	Slider-Item
+===========================================================*/
+
+/** los items del slider estaran en el centro del slideshow y desactivados
+ *  y se utiliza la propiedad transform porque consume menos recursos;
+ */
+.slider-item {
+	position: absolute;
+	display: none;
+	width: 100%;
+	height: 100%;
+	transition: transform 1s ease-in-out;
+}
+
+
+/** el item se obicara a la derecha */
+.slider-item--right { 
+	transform: translateX( 50% );
+}
+
+/** el  item se ubicara en el centro */
+.slider-item--center { 
+	z-index: 15;
+	transform: translateX( -50% );
+}
+
+/** el item se ubicara a la izquierda */
+.slider-item--left { 
+	transform: translateX( -150% );
+}
+
+/** mantiene activo tres items en el slideshow */
+.slider-item--right,
+.slider-item--center,
+.slider-item--left { 	display: inline-block; }
+
+.img-1 { background-image: url( "../img/slider-img/imagen-1.jpg" ); }
+.img-2 { background-image: url( "../img/slider-img/imagen-2.jpg" ); }
+.img-3 { background-image: url( "../img/slider-img/imagen-3.jpg" ); }
+
+/** definicion del contenerdor que tendra la imagen de decoracion */
+.slider-item__img {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+/* sobreponer color sobre las imagenes */
+.color {
+	width: 100%;
+	height: 100%;
+}
+
+/* gradiente
+	background: linear-gradient(to left, rgba(255, 140, 0, 0.7),
+																			 rgba(255, 246, 0, 0.7));
+*/
+.color--blue { background: rgba(0, 100, 255, .6 ); }
+.color--orange { background: rgba(255, 140, 0, .6 ); }
+.color--purple { background: rgba(159, 0, 254, .6 ); }
+
+.slider-item__title {
+	position: absolute;
+	bottom: 50%;
+	-webkit-transform: translateY( 50% );
+			-ms-transform: translateY( 50% );
+					transform: translateY( 50% );
+	width: 100%;
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 0 0 2px #111;
+}
+
+.slider-arrow {
+	position: absolute;
+	z-index: 20;
+	top: 50%;
+	transform: translate(-50%, -50% );
+	display: none;
+	width: 100px;
+	line-height: 100px;
+	font-size: 1.8rem;
+	background-color: rgba( 150, 150, 150, .6 );
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: 0 5px 7px #222;
+	transition: background-color .5s;
+}
+
+.slider-arrow:hover { 
+	background-color: rgba( 100, 100, 100, .9 ); 
+	color: #fa0;
+}
+
+.arrow-left {
+	left: 0;
+	padding-right: 25px;
+	text-align: right;
+}
+
+.arrow-right {
+	left: 100%;
+	padding-left: 25px;
+	text-align: left;
+}
+
+
+@media ( min-width: 480px ) {
+	.slider-container { max-height: 500px; }
+
+	.img-1 { background-image: url( "../img/slider-img-480w/imagen-1-480w.jpg" ); }
+	.img-2 { background-image: url( "../img/slider-img-480w/imagen-2-480w.jpg" ); }
+	.img-3 { background-image: url( "../img/slider-img-480w/imagen-3-480w.jpg" ); }
+
+	.slider-item__title { font-size: 3rem; }
+}
+
+@media ( min-width: 768px ) {
+
+	.slider-container { max-height: 800px; }
+
+	.img-1 { background-image: url( "../img/slider-img-768w/imagen-1-768w.jpg" ); }
+	.img-2 { background-image: url( "../img/slider-img-768w/imagen-2-768w.jpg" ); }
+	.img-3 { background-image: url( "../img/slider-img-768w/imagen-3-768w.jpg" ); }
+
+	.slider-item__title { font-size: 3.3rem; }
+
+	.slider-arrow { display: inline-block; }
+}
+
+@media ( min-width: 1200px ) {
+
+	.slider-container { max-height: 1200px; }
+
+	.img-1 { background-image: url( "../img/slider-img-1200w/imagen-1-1200w.jpg" ); }
+	.img-2 { background-image: url( "../img/slider-img-1200w/imagen-2-1200w.jpg" ); }
+	.img-3 { background-image: url( "../img/slider-img-1200w/imagen-3-1200w.jpg" ); }
+
+	.slider-item__title { font-size: 3.7rem; }
+
+	.slider-arrow {
+		display: inline-block;
+		width: 150px;
+		line-height: 150px;
+		font-size: 2.3rem;
+	}
+
+	.arrow-left { padding-right: 40px; }
+
+	.arrow-right { padding-left: 40px; }
+}

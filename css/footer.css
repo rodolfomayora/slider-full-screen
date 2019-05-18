@@ -1,0 +1,15 @@
+/**
+ * Norma:
+ * Las propiedades CSS se ordenaran en funcion de la formula PC-TV
+ *  Posicionamiento - propiedades de posicionamiento
+ *  Caja - propiedades de modelo de caja
+ *  Texto - propiedades texto
+ *  Visual - propiedades visuales
+ *
+ * metodologia: First Mobile;
+ */
+
+.footer {
+	line-height: 50px;
+	background-color: #34495e;
+}

@@ -1,0 +1,37 @@
+/**
+ * Norma:
+ * Las propiedades CSS se ordenaran en funcion de la formula PC-TV
+ *  Posicionamiento - propiedades de posicionamiento
+ *  Caja - propiedades de modelo de caja
+ *  Texto - propiedades texto
+ *  Visual - propiedades visuales
+ *
+ * metodologia: First Mobile;
+ */
+
+ /*	Header
+===========================================================*/
+.header {
+	/* le asigne position relative para otorgar el efecto de material design */
+	position: relative;
+	z-index: 50;
+	line-height: 80px;
+	background-color: #2ecc71;
+	box-shadow: 0 2px 5px #222;
+}
+
+@media (min-width: 768px) {
+
+	.header {
+		line-height: 0;
+		padding: 4%;
+	}
+}
+
+@media (min-width: 1200px) {
+
+	.header {
+		line-height: 0;
+		padding: 3%;
+	}
+}
