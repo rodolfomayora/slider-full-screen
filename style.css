@@ -14,8 +14,7 @@
 	padding: 0;
 	margin: 0;
 	outline: 0;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html { 
@@ -69,32 +68,24 @@ footer { display: block; }
 	display: none;
 	width: 100%;
 	height: 100%;
-	-webkit-transition: transform 1s ease-in-out;
-			 -o-transition: transform 1s ease-in-out;
-					transition: transform 1s ease-in-out;
+	transition: transform 1s ease-in-out;
 }
 
 
 /** el item se obicara a la derecha */
 .slider-item--right { 
-	-webkit-transform: translateX( 50% );
-			-ms-transform: translateX( 50% );
-					transform: translateX( 50% );
+	transform: translateX( 50% );
 }
 
 /** el  item se ubicara en el centro */
 .slider-item--center { 
 	z-index: 15;
-	-webkit-transform: translateX( -50% );
-			-ms-transform: translateX( -50% );
-					transform: translateX( -50% );
+	transform: translateX( -50% );
 }
 
 /** el item se ubicara a la izquierda */
 .slider-item--left { 
-	-webkit-transform: translateX( -150% );
-			-ms-transform: translateX( -150% );
-					transform: translateX( -150% );
+	transform: translateX( -150% );
 }
 
 /** mantiene activo tres items en el slideshow */
