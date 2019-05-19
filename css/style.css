@@ -36,7 +36,10 @@ main,
 footer { display: block; }
 
 
-.info { color: green; }
+.info { 
+	line-height: 5vh;
+	font-size: 4vmin; 
+}
 
 @media (min-width: 768px) {
 	

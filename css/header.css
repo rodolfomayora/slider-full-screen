@@ -15,7 +15,7 @@
 	/* le asigne position relative para que la sombra funcione */
 	position: relative;
 	z-index: 50;
-	line-height: 12vh;
+	line-height: 10vh;
 	font-size: 3vh;
 	background-color: #2ecc71;
 	box-shadow: 0 4px 8px #222;
