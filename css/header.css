@@ -12,26 +12,10 @@
  /*	Header
 ===========================================================*/
 .header {
-	/* le asigne position relative para otorgar el efecto de material design */
+	/* le asigne position relative para que la sombra funcione */
 	position: relative;
 	z-index: 50;
-	line-height: 80px;
+	line-height: 12vh;
 	background-color: #2ecc71;
-	box-shadow: 0 2px 5px #222;
-}
-
-@media (min-width: 768px) and (max-width: 1199px){
-
-	.header {
-		line-height: 0;
-		padding: 4%;
-	}
-}
-
-@media (min-width: 1200px) {
-
-	.header {
-		line-height: 0;
-		padding: 3%;
-	}
+	box-shadow: 0 4px 8px #222;
 }
