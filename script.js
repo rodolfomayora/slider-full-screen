@@ -1,19 +1,20 @@
 /**
  * @fileoverview gestion del SLIDER de imagenes, la logica consiste en que se 
- *  tendra tres items del slideshow activos mientras que el resto de items
- *  se mantienen inactivos par no consumir resursos. este modulo cambia las
- *  clases de los elementos activos para que se desplazen 
+ *  tendra N imagenes, de los cuales tres items del slideshow activos mientras
+ *  que el resto de items se mantienen inactivos par no consumir resursos. 
+ *  este modulo cambia las clases de los elementos activos para que se 
+ *  desplazen 
  *
  * @author rodolfo mayora
  */
 
-const CLASS = document.querySelector.bind( document );
+const ID = document.getElementById.bind( document );
 
 let  // referencias DOM
-	slideshow = CLASS( '.slider-container' ),
-	item = document.querySelectorAll( '.slider-item' ),
-	arrowLeft = CLASS( '.arrow-left' ),
-	arrowRight = CLASS( '.arrow-right' ),
+	slideshow = ID( 'slider-container' ),
+	item = document.querySelectorAll( '.js-item' ),
+	arrowLeft = ID( 'arrow-left' ),
+	arrowRight = ID( 'arrow-right' ),
 	//variables del slideshow
 	itemTotal = item.length,
 	lastItem = itemTotal - 1,
