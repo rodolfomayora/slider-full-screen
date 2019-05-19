@@ -34,3 +34,11 @@ body {
 header,
 main,
 footer { display: block; }
+
+
+.info { color: green; }
+
+@media (min-width: 768px) {
+	
+	.info { display: none; }
+}

@@ -18,17 +18,17 @@
 		<h1 class="header__title">SLIDER</h1>
 	</header>
 
-	<main class="slider-container">
-
-		<div class="slider-item slider-item--center">
+	<main class="slider-container" id="slider-container">
+		<!-- el primer item del SLIDER debe tener la clase "slider-item--center"-->
+		<div class="slider-item js-item slider-item--center">
 			<div class="slider-item__img img-1">
 				<div class="color color--orange">
 					<div class="slider-item__title">EQUIPOS</div>
 				</div>
 			</div>
 		</div>
-
-		<div class="slider-item slider-item--right">
+		<!--el segndo item del SLIDER debe tener la clase "slider-item--right"-->
+		<div class="slider-item js-item slider-item--right">
 			<div class="slider-item__img img-2">
 				<div class="color color--purple">
 					<div class="slider-item__title">NEGOCIOS</div>
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 
-		<div class="slider-item slider-item--left">
+		<div class="slider-item js-item">
 			<div class="slider-item__img img-3">
 				<div class="color color--blue">
 					<div class="slider-item__title">EMPRENDIMIENTO</div>
@@ -44,8 +44,17 @@
 			</div>
 		</div>
 
-		<a class="slider-arrow arrow-left">&#10094;</a>
-		<a class="slider-arrow arrow-right">&#10095;</a>
+		<div class="slider-item js-item slider-item--left">
+			<div class="slider-item__img img-4">
+				<div class="color color--green">
+					<div class="slider-item__title">DESARROLLO</div>
+				</div>
+			</div>
+		</div>
+		<!-- el ultimo item del SLIDER debe tener la clase "slider-item--left"
+					para mantener la consistencia del efecto slide -->
+		<a class="slider-arrow arrow-left" id="arrow-left">&#10094;</a>
+		<a class="slider-arrow arrow-right" id="arrow-right">&#10095;</a>
 
 	</main>
 

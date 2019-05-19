@@ -52,6 +52,7 @@
 .img-1 { background-image: url( "../img/slider-img/imagen-1.jpg" ); }
 .img-2 { background-image: url( "../img/slider-img/imagen-2.jpg" ); }
 .img-3 { background-image: url( "../img/slider-img/imagen-3.jpg" ); }
+.img-4 { background-image: url( "../img/slider-img/imagen-4.jpg" ); }
 
 /** definicion del contenerdor que tendra la imagen de decoracion */
 .slider-item__img {
@@ -71,9 +72,10 @@
 	align-items: center;
 }
 
-.color--blue { background: rgba(0, 100, 255, .6 ); }
-.color--orange { background: rgba(255, 140, 0, .6 ); }
-.color--purple { background: rgba(159, 0, 254, .6 ); }
+.color--blue 		{ background: rgba(0,100,255,.6 ); }
+.color--orange 	{ background: rgba(255,140,0,.6 ); }
+.color--purple	{ background: rgba(159,0,254,.6 ); }
+.color--green 	{ background: rgba(3,212,0,.6); }
 
 .slider-item__title {
 	font-size: 10vmin;
@@ -122,6 +124,7 @@
 	.img-1 { background-image: url( "../img/slider-img-480w/imagen-1-480w.jpg" ); }
 	.img-2 { background-image: url( "../img/slider-img-480w/imagen-2-480w.jpg" ); }
 	.img-3 { background-image: url( "../img/slider-img-480w/imagen-3-480w.jpg" ); }
+	.img-4 { background-image: url( "../img/slider-img-480w/imagen-4-480w.jpg" ); }
 }
 
 
@@ -135,6 +138,7 @@
 	.img-1 { background-image: url( "../img/slider-img-768w/imagen-1-768w.jpg" ); }
 	.img-2 { background-image: url( "../img/slider-img-768w/imagen-2-768w.jpg" ); }
 	.img-3 { background-image: url( "../img/slider-img-768w/imagen-3-768w.jpg" ); }
+	.img-4 { background-image: url( "../img/slider-img-768w/imagen-4-768w.jpg" ); }
 }
 
 @media (min-width: 1200px) {
@@ -142,4 +146,5 @@
 	.img-1 { background-image: url( "../img/slider-img-1200w/imagen-1-1200w.jpg" ); }
 	.img-2 { background-image: url( "../img/slider-img-1200w/imagen-2-1200w.jpg" ); }
 	.img-3 { background-image: url( "../img/slider-img-1200w/imagen-3-1200w.jpg" ); }
+	.img-4 { background-image: url( "../img/slider-img-1200w/imagen-4-1200w.jpg" ); }
 }
