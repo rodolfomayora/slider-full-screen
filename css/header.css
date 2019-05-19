@@ -20,7 +20,7 @@
 	box-shadow: 0 2px 5px #222;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1199px){
 
 	.header {
 		line-height: 0;
