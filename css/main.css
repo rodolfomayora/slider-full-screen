@@ -35,38 +35,17 @@
 	transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
-/** el  item se ubicara en el centro */
-.slider-item--center { 
-	z-index: 15;
-	-webkit-transform: translateX(0);
-	    -ms-transform: translateX(0);
-	        transform: translateX(0);
-}
 
-/** el item se obicara a la derecha */
-.slider-item--right { 
-	-webkit-transform: translateX(100%); 
-	    -ms-transform: translateX(100%); 
-	        transform: translateX(100%); 
-}
-
-
-/** el item se ubicara a la izquierda */
-.slider-item--left { 
-	-webkit-transform: translateX(-100%); 
-	    -ms-transform: translateX(-100%); 
-	        transform: translateX(-100%); 
-}
 
 /** mantiene activo tres items en el slideshow */
 .slider-item--right,
 .slider-item--center,
 .slider-item--left { 	display: block; }
 
-.img-1 { background-image: url( "../img/slider-img/imagen-1.jpg" ); }
-.img-2 { background-image: url( "../img/slider-img/imagen-2.jpg" ); }
-.img-3 { background-image: url( "../img/slider-img/imagen-3.jpg" ); }
-.img-4 { background-image: url( "../img/slider-img/imagen-4.jpg" ); }
+.img-1 { background-image: url( "https://dl.dropboxusercontent.com/s/23rbecab2pluzvg/imagen-1.jpg?dl=0" ); }
+.img-2 { background-image: url( "https://dl.dropboxusercontent.com/s/t38t22plpc4mh5w/imagen-2.jpg?dl=0" ); }
+.img-3 { background-image: url( "https://dl.dropboxusercontent.com/s/ifosufoo68urvnn/imagen-3.jpg?dl=0" ); }
+.img-4 { background-image: url( "https://dl.dropboxusercontent.com/s/z21d158ur8jvdv3/imagen-4.jpg?dl=0" ); }
 
 /** definicion del contenerdor que tendra la imagen de decoracion */
 .slider-item__img {
@@ -152,10 +131,10 @@
 
 @media (min-width: 480px) and (max-width: 767px) {
 
-	.img-1 { background-image: url( "../img/slider-img-480w/imagen-1-480w.jpg" ); }
-	.img-2 { background-image: url( "../img/slider-img-480w/imagen-2-480w.jpg" ); }
-	.img-3 { background-image: url( "../img/slider-img-480w/imagen-3-480w.jpg" ); }
-	.img-4 { background-image: url( "../img/slider-img-480w/imagen-4-480w.jpg" ); }
+	.img-1 { background-image: url( "https://dl.dropboxusercontent.com/s/g1js6dzwgf1nmws/imagen-1-480w.jpg?dl=0" ); }
+	.img-2 { background-image: url( "https://dl.dropboxusercontent.com/s/onoguv4y53091j4/imagen-2-480w.jpg?dl=0" ); }
+	.img-3 { background-image: url( "https://dl.dropboxusercontent.com/s/e64fuogikf2phet/imagen-3-480w.jpg?dl=0" ); }
+	.img-4 { background-image: url( "https://dl.dropboxusercontent.com/s/oxn1ckgtelpy0dn/imagen-4-480w.jpg?dl=0" ); }
 }
 
 
@@ -167,16 +146,16 @@
 
 @media (min-width: 768px) and (max-width: 1199px) {
 
-	.img-1 { background-image: url( "../img/slider-img-768w/imagen-1-768w.jpg" ); }
-	.img-2 { background-image: url( "../img/slider-img-768w/imagen-2-768w.jpg" ); }
-	.img-3 { background-image: url( "../img/slider-img-768w/imagen-3-768w.jpg" ); }
-	.img-4 { background-image: url( "../img/slider-img-768w/imagen-4-768w.jpg" ); }
+	.img-1 { background-image: url( "https://dl.dropboxusercontent.com/s/gf69o067emwimzm/imagen-1-768w.jpg?dl=0" ); }
+	.img-2 { background-image: url( "https://dl.dropboxusercontent.com/s/uaithyo68m81w0k/imagen-2-768w.jpg?dl=0" ); }
+	.img-3 { background-image: url( "https://dl.dropboxusercontent.com/s/2rpszh4w4n0fv8x/imagen-3-768w.jpg?dl=0" ); }
+	.img-4 { background-image: url( "https://dl.dropboxusercontent.com/s/khoq6gyfqs1hy24/imagen-4-768w.jpg?dl=0" ); }
 }
 
 @media (min-width: 1200px) {
 
-	.img-1 { background-image: url( "../img/slider-img-1200w/imagen-1-1200w.jpg" ); }
-	.img-2 { background-image: url( "../img/slider-img-1200w/imagen-2-1200w.jpg" ); }
-	.img-3 { background-image: url( "../img/slider-img-1200w/imagen-3-1200w.jpg" ); }
-	.img-4 { background-image: url( "../img/slider-img-1200w/imagen-4-1200w.jpg" ); }
+	.img-1 { background-image: url( "https://dl.dropboxusercontent.com/s/7bfzdf0dtv2iez6/imagen-1-1200w.jpg?dl=0" ); }
+	.img-2 { background-image: url( "https://dl.dropboxusercontent.com/s/6lfztfsivp7yeuk/imagen-2-1200w.jpg?dl=0" ); }
+	.img-3 { background-image: url( "https://dl.dropboxusercontent.com/s/yrylcjhgeikfadm/imagen-3-1200w.jpg?dl=0" ); }
+	.img-4 { background-image: url( "https://dl.dropboxusercontent.com/s/gw7448r3nmf01i1/imagen-4-1200w.jpg?dl=0" ); }
 }

@@ -11,6 +11,30 @@
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/footer.css">
+	<style type="text/css">
+		/** el  item se ubicara en el centro */
+		.slider-item--center { 
+			z-index: 15;
+			-webkit-transform: translateX(0);
+			    -ms-transform: translateX(0);
+			        transform: translateX(0);
+		}
+
+		/** el item se obicara a la derecha */
+		.slider-item--right { 
+			-webkit-transform: translateX(100%); 
+			    -ms-transform: translateX(100%); 
+			        transform: translateX(100%); 
+		}
+
+
+		/** el item se ubicara a la izquierda */
+		.slider-item--left { 
+			-webkit-transform: translateX(-100%); 
+			    -ms-transform: translateX(-100%); 
+			        transform: translateX(-100%); 
+		}
+	</style>
 </head>
 <body>
 
