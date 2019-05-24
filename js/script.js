@@ -7,38 +7,33 @@
  *
  * @author rodolfo mayora
  */
-
-const ID = document.getElementById.bind( document );
-
-let  // referencias DOM
-	slideshow = ID( 'slider-container' ),
-	item = document.querySelectorAll( '.js-item' ),
-	arrowLeft = ID( 'arrow-left' ),
-	arrowRight = ID( 'arrow-right' ),
-	//variables del slideshow
-	itemTotal = item.length,
-	lastItem = itemTotal - 1,
-	itemIndexLeft = lastItem,
-	itemIndexCenter = 0,
-	itemIndexRight = 1,
-	itemInterval = 5000,
-	autoSlide = null,
-	//variables del slide touch para telefonos
-	touchStartX = 0,
-	touchEndX = 0;
-
-
+var ID = document.getElementById.bind(document);
+var // referencias DOM
+slideshow = ID('slider-container'),
+    item = document.querySelectorAll('.js-item'),
+    arrowLeft = ID('arrow-left'),
+    arrowRight = ID('arrow-right'),
+    //variables del slideshow
+itemTotal = item.length,
+    lastItem = itemTotal - 1,
+    itemIndexLeft = lastItem,
+    itemIndexCenter = 0,
+    itemIndexRight = 1,
+    itemInterval = 5000,
+    autoSlide = null,
+    //variables del slide touch para telefonos
+touchStartX = 0,
+    touchEndX = 0;
 /**
  * @function
  * @name stopAutoSlide
  * @description detiene el slide automatico
  */
-function stopAutoSlide () {
-	clearInterval( autoSlide );
-	autoSlide = null;
+
+function stopAutoSlide() {
+  clearInterval(autoSlide);
+  autoSlide = null;
 }
-
-
 /**
  * @function
  * @name changeImg
@@ -55,52 +50,39 @@ function stopAutoSlide () {
  *
  * @param { number } newItem - nuevo elemento activo del slide 
  */
-function changeClassItem ( direction, newItem ) {
-	
-	if ( direction ) {
-
-		// la imagen que esta a la izquierda sale del slider
-		item[ itemIndexLeft ].classList.remove( 'slider-item--left' );
-
-		// la imagen del centro se ubica a la izquierda
-		item[ itemIndexCenter ].classList.add( 'slider-item--left' );
-		item[ itemIndexCenter ].classList.remove( 'slider-item--center' );
-		item[ itemIndexCenter ].style.zIndex = 15;
 
 
-		// la imange de de la derecha se ubica en el centro 
-		item[ itemIndexRight ].classList.add( 'slider-item--center' );
-		item[ itemIndexRight ].classList.remove( 'slider-item--right' );
-		item[ itemIndexRight].style.zIndex = 15;
+function changeClassItem(direction, newItem) {
+  if (direction) {
+    // la imagen que esta a la izquierda sale del slider
+    item[itemIndexLeft].classList.remove('slider-item--left'); // la imagen del centro se ubica a la izquierda
 
-		// una imagen entra al slider
-		item[ newItem ].classList.add( 'slider-item--right' );
-		item[ newItem ].style.zIndex = 10;
+    item[itemIndexCenter].classList.add('slider-item--left');
+    item[itemIndexCenter].classList.remove('slider-item--center');
+    item[itemIndexCenter].style.zIndex = 15; // la imange de de la derecha se ubica en el centro 
 
-	} else {
+    item[itemIndexRight].classList.add('slider-item--center');
+    item[itemIndexRight].classList.remove('slider-item--right');
+    item[itemIndexRight].style.zIndex = 15; // una imagen entra al slider
 
-		// la imagen que esta a la daracha sale del slider
-		item[ itemIndexRight ].classList.remove( 'slider-item--right' );
+    item[newItem].classList.add('slider-item--right');
+    item[newItem].style.zIndex = 10;
+  } else {
+    // la imagen que esta a la daracha sale del slider
+    item[itemIndexRight].classList.remove('slider-item--right'); // la imagen del centro se ubica a la derecha
 
-		// la imagen del centro se ubica a la derecha
-		item[ itemIndexCenter ].classList.add( 'slider-item--right' );
-		item[ itemIndexCenter ].classList.remove( 'slider-item--center' );
-		item[ itemIndexCenter ].style.zIndex = 15;
+    item[itemIndexCenter].classList.add('slider-item--right');
+    item[itemIndexCenter].classList.remove('slider-item--center');
+    item[itemIndexCenter].style.zIndex = 15; // la imange de de la izquierda se ubica en el centro 
 
+    item[itemIndexLeft].classList.add('slider-item--center');
+    item[itemIndexLeft].classList.remove('slider-item--left');
+    item[itemIndexLeft].style.zIndex = 15; // una imagen entra al slider
 
-		// la imange de de la izquierda se ubica en el centro 
-		item[ itemIndexLeft ].classList.add( 'slider-item--center' );
-		item[ itemIndexLeft ].classList.remove( 'slider-item--left' );
-		item[ itemIndexLeft ].style.zIndex = 15;
-
-		// una imagen entra al slider
-		item[ newItem ].classList.add( 'slider-item--left' );
-		item[ newItem ].style.zIndex = 10;
-
-	}
-} 
-
-
+    item[newItem].classList.add('slider-item--left');
+    item[newItem].style.zIndex = 10;
+  }
+}
 /**
  * @function
  * @name changeIndex
@@ -108,53 +90,30 @@ function changeClassItem ( direction, newItem ) {
  * @param { number } change - se le puede pasar 1 para que
  *  incremente los indices, o 0 para decrecer los indicies
  */
-function changeIndex ( change ) {
 
-	let left = 0,
-			center = 0,
-			rignt = 0;
-	
-	if ( change ) {
 
-		itemIndexLeft === itemTotal - 1
-			? left = 0
-			: left = itemIndexLeft + 1;
+function changeIndex(change) {
+  var left = 0,
+      center = 0,
+      rignt = 0;
 
-		itemIndexCenter === itemTotal - 1 
-			? center = 0
-			: center = itemIndexCenter + 1;
+  if (change) {
+    itemIndexLeft === itemTotal - 1 ? left = 0 : left = itemIndexLeft + 1;
+    itemIndexCenter === itemTotal - 1 ? center = 0 : center = itemIndexCenter + 1;
+    itemIndexRight === itemTotal - 1 ? right = 0 : right = itemIndexRight + 1;
+    changeClassItem(1, right);
+  } else {
+    itemIndexLeft === 0 ? left = itemTotal - 1 : left = itemIndexLeft - 1;
+    itemIndexCenter === 0 ? center = itemTotal - 1 : center = itemIndexCenter - 1;
+    itemIndexRight === 0 ? right = itemTotal - 1 : right = itemIndexRight - 1;
+    changeClassItem(0, left);
+  } // se actualizan los indices
 
-		itemIndexRight === itemTotal - 1 
-			? right = 0
-			: right = itemIndexRight + 1;
 
-		changeClassItem( 1, right );
-
-	} else {
-
-		itemIndexLeft === 0
-			? left = itemTotal - 1
-			: left = itemIndexLeft - 1;
-
-		itemIndexCenter === 0
-			? center = itemTotal - 1
-			: center = itemIndexCenter - 1;
-
-		itemIndexRight === 0
-			? right = itemTotal - 1
-			: right = itemIndexRight - 1;
-
-		changeClassItem( 0, left );
-	
-	}
-
-	// se actualizan los indices
-	itemIndexLeft = left;
-	itemIndexCenter = center;
-	itemIndexRight = right;
+  itemIndexLeft = left;
+  itemIndexCenter = center;
+  itemIndexRight = right;
 }
-
-
 /**
  * @function
  * @name changeItem
@@ -162,12 +121,12 @@ function changeIndex ( change ) {
  * @param { number } direction - pasar 1 para mover el item a la izquierda,
  *  y 0 para mover el item a la derecha
  */
-function changeItem ( direction ) {
-	stopAutoSlide();
-	changeIndex( direction );
+
+
+function changeItem(direction) {
+  stopAutoSlide();
+  changeIndex(direction);
 }
-
-
 /**
  * @function
  * @name slide
@@ -177,16 +136,15 @@ function changeItem ( direction ) {
  * @param {function} functionEvent
  * @param {number} numberDirection - leer descripcion de "changeItem"
  */
-function slide ( elementDOM, typeEvent, functionEvent, numberDirection ) {
 
-	elementDOM.removeEventListener( typeEvent, functionEvent );
-	changeItem( numberDirection );
-	setTimeout( function () {
-		elementDOM.addEventListener( typeEvent, functionEvent );
-	}, 1000);
+
+function slide(elementDOM, typeEvent, functionEvent, numberDirection) {
+  elementDOM.removeEventListener(typeEvent, functionEvent);
+  changeItem(numberDirection);
+  setTimeout(function () {
+    elementDOM.addEventListener(typeEvent, functionEvent);
+  }, 1000);
 }
-
-
 /**
  * @function
  * @name slideTouch
@@ -194,63 +152,57 @@ function slide ( elementDOM, typeEvent, functionEvent, numberDirection ) {
  *  y determan que un gesto intecnional por parte del usuario
  *  debe superar a los 100px
  */
-function slideTouch ( event ) {
-	touchEndX = event.changedTouches[ 0 ].screenX;
 
-	if ( touchEndX < touchStartX - 100 )
-		slide( slideshow, 'touchend', slideTouch, 1 );
-	if ( touchEndX > touchStartX + 100 )
-		slide( slideshow, 'touchend', slideTouch, 0 );
+
+function slideTouch(event) {
+  touchEndX = event.changedTouches[0].screenX;
+  if (touchEndX < touchStartX - 100) slide(slideshow, 'touchend', slideTouch, 1);
+  if (touchEndX > touchStartX + 100) slide(slideshow, 'touchend', slideTouch, 0);
 }
-
 /**
  * @function
  * @name slideLeft
  * @description ejecuta la funcion slide para arrowLeft
  */
-function slideLeft () {
-	slide( arrowLeft, 'click', slideLeft, 1 );
-}
 
+
+function slideLeft() {
+  slide(arrowLeft, 'click', slideLeft, 1);
+}
 /**
  * @function
  * @name slideRight
  * @description ejecuta la funcion slide para arrowRight
  */
-function slideRight () {
-	slide( arrowRight, 'click', slideRight, 0 );
+
+
+function slideRight() {
+  slide(arrowRight, 'click', slideRight, 0);
 }
-
-
-
 /* EVENTOS
  ====================================================*/
-window.addEventListener( 'load', function () {
 
-	// detiene el slider cuando el usuario quita el foco de la pagina
-	window.addEventListener( 'blur', function () { stopAutoSlide() } );
 
-	// reanuda el slider cuando el usuario vuelve a la pagina
-	window.addEventListener( 'focus', function () {
-		autoSlide = window.setInterval( function () {
-			changeIndex( 1 )
-		}, itemInterval );
-	} );
+window.addEventListener('load', function () {
+  // detiene el slider cuando el usuario quita el foco de la pagina
+  window.addEventListener('blur', function () {
+    stopAutoSlide();
+  }); // reanuda el slider cuando el usuario vuelve a la pagina
 
-	// eventos touch
-	slideshow.addEventListener( 'touchstart', function ( event ) {
-		touchStartX = event.changedTouches[ 0 ].screenX;
-	} );
+  window.addEventListener('focus', function () {
+    autoSlide = window.setInterval(function () {
+      changeIndex(1);
+    }, itemInterval);
+  }); // eventos touch
 
-	slideshow.addEventListener( 'touchend', slideTouch );
+  slideshow.addEventListener('touchstart', function (event) {
+    touchStartX = event.changedTouches[0].screenX;
+  });
+  slideshow.addEventListener('touchend', slideTouch);
+  arrowLeft.addEventListener('click', slideLeft);
+  arrowRight.addEventListener('click', slideRight); // inicia el slider automatico
 
-	arrowLeft.addEventListener( 'click', slideLeft );
-
-	arrowRight.addEventListener( 'click', slideRight );
-
-	// inicia el slider automatico
-	autoSlide = window.setInterval( function () {
-		changeIndex( 1 );
-	}, itemInterval );
-
-} );
+  autoSlide = window.setInterval(function () {
+    changeIndex(1);
+  }, itemInterval);
+});
