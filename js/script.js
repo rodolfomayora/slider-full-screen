@@ -170,14 +170,55 @@ function changeItem ( direction ) {
 
 /**
  * @function
+ * @name slide
+ * @description quita el escuchador del evento clik en arroLeft y lo añade
+ *  de nuevo un segundo despues para mantener el buen funcionamiento del slide
+ * @param {object} elementDOM
+ * @param {function} functionEvent
+ * @param {number} numberDirection - leer descripcion de "changeItem"
+ */
+function slide ( elementDOM, typeEvent, functionEvent, numberDirection ) {
+
+	elementDOM.removeEventListener( typeEvent, functionEvent );
+	changeItem( numberDirection );
+	setTimeout( function () {
+		elementDOM.addEventListener( typeEvent, functionEvent );
+	}, 1000);
+}
+
+
+/**
+ * @function
  * @name slideTouch
  * @description evalua la direccion del gesto del usuario, 
  *  y determan que un gesto intecnional por parte del usuario
  *  debe superar a los 100px
  */
-function slideTouch () {
-	if ( touchEndX < touchStartX - 100 ) changeItem( 1 );
-	if ( touchEndX > touchStartX + 100 ) changeItem( 0 );
+function slideTouch ( event ) {
+	touchEndX = event.changedTouches[ 0 ].screenX;
+
+	if ( touchEndX < touchStartX - 100 )
+		slide( slideshow, 'touchend', slideTouch, 1 );
+	if ( touchEndX > touchStartX + 100 )
+		slide( slideshow, 'touchend', slideTouch, 0 );
+}
+
+/**
+ * @function
+ * @name slideLeft
+ * @description ejecuta la funcion slide para arrowLeft
+ */
+function slideLeft () {
+	slide( arrowLeft, 'click', slideLeft, 1 );
+}
+
+/**
+ * @function
+ * @name slideRight
+ * @description ejecuta la funcion slide para arrowRight
+ */
+function slideRight () {
+	slide( arrowRight, 'click', slideRight, 0 );
 }
 
 
@@ -201,14 +242,11 @@ window.addEventListener( 'load', function () {
 		touchStartX = event.changedTouches[ 0 ].screenX;
 	} );
 
-	slideshow.addEventListener( 'touchend', function ( event ) {
-		touchEndX = event.changedTouches[ 0 ].screenX;
-		slideTouch();
-	} );
+	slideshow.addEventListener( 'touchend', slideTouch );
 
-	arrowLeft.addEventListener( 'click', function() { changeItem( 1 ) } );
+	arrowLeft.addEventListener( 'click', slideLeft );
 
-	arrowRight.addEventListener( 'click', function() { changeItem( 0 ) } );
+	arrowRight.addEventListener( 'click', slideRight );
 
 	// inicia el slider automatico
 	autoSlide = window.setInterval( function () {
