@@ -233,7 +233,8 @@ window.addEventListener( 'load', function () {
 	// reanuda el slider cuando el usuario vuelve a la pagina
 	window.addEventListener( 'focus', function () {
 		autoSlide = window.setInterval( function () {
-			changeIndex( 1 )
+			stopAutoSlide();
+			changeIndex( 1 );
 		}, itemInterval );
 	} );
 
